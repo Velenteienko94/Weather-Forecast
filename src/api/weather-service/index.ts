@@ -13,7 +13,7 @@ export class WeatherService {
   private async fetch<RequestType extends Record<string, any>, ResponseType>(
     url: string,
     init?: RequestInit & { params?: RequestType }
-  ): Promise<ResponseType | void> {
+  ): Promise<ResponseType> {
     const query = new URLSearchParams();
     const params = init?.params;
 

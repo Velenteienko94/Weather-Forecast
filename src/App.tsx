@@ -18,8 +18,8 @@ function App() {
         days: 3,
       });
 
-      if (resp) setData(resp);
-      if (forecast) console.log(forecast.forecast.forecastday);
+      console.log(forecast.forecast.forecastday);
+      setData(resp);
     })();
   }, []);
 
