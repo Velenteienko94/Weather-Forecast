@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import { Api } from "./api";
-import { TWeatherByLocationResponse } from "./api/weather-service/model";
+import { TWeatherForecastResponse } from "./api/weather-service/model";
+import HeadingNavbar from "./components/header-item";
 
 function App() {
-  const [data, setData] = useState<TWeatherByLocationResponse>();
+  const [data, setData] = useState<TWeatherForecastResponse>();
 
   useEffect(() => {
     (async () => {
@@ -18,12 +19,16 @@ function App() {
         days: 3,
       });
 
-      console.log(forecast.forecast.forecastday);
-      setData(resp);
+      setData({ ...forecast, ...resp });
     })();
   }, []);
 
-  return <div className="App">{data && <div>{data.location.name}</div>}</div>;
+  return (
+    <div className="App">
+      <HeadingNavbar location={data && <div>{data.location.name}</div>} />
+    </div>
+  );
+  // {data && <div>{data.location.name}</div>}
 }
 
 export default App;
