@@ -6,6 +6,13 @@
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.8.3",
+    "@typescript-eslint/eslint-plugin": "^4.5.0",
+    "@typescript-eslint/parser": "^4.5.0",
+    "eslint": "^7.11.0",
+    "eslint-config-prettier": "^6.13.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "prettier": "2.1.2",
     "@types/jest": "^26.0.21",
     "@types/node": "^12.20.6",
     "@types/react": "^17.0.3",
@@ -19,6 +26,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "prettier": "prettier --write .",
+    "lint": "eslint --ext .ts src/",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

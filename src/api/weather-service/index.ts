@@ -7,10 +7,13 @@ import {
 
 export class WeatherService {
   private response_type: "json" | "xml" = "json";
-  private base_api: string = "http://api.weatherapi.com/v1/";
+  private base_api = "http://api.weatherapi.com/v1/";
   private api_key: string = process.env.REACT_APP_WEATHER_API_KEY || "";
 
-  private async fetch<RequestType extends Record<string, any>, ResponseType>(
+  private async fetch<
+    RequestType extends Record<string, unknown>,
+    ResponseType
+  >(
     url: string,
     init?: RequestInit & { params?: RequestType }
   ): Promise<ResponseType> {
@@ -35,6 +38,7 @@ export class WeatherService {
 
       return await resp.json();
     } catch (error) {
+      console.log(error);
       throw error;
     }
   }
