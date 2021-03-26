@@ -1,21 +1,16 @@
-import React from "react";
-import { TWeatherForecastResponse } from "../../api/weather-service/model";
+import { Days } from "./days";
+import { MenuButton } from "./menu-btn";
+import styles from "./styles.module.scss";
+import { TemperatureMeasurment } from "./temperature";
 
-export const HeadingNavbar = (props: TWeatherForecastResponse) => {
+export const Navbar = (): JSX.Element => {
+  const handler = () => console.log("FOO");
+
   return (
-    <nav>
-      <div className="nav-wrapper">
-        <a href="/" className="brand-logo">
-          {props.location && props.location.name}
-        </a>
-        <ul id="nav-mobile" className="right hide-on-med-and-down">
-          <li>
-            <a href="collapsible.html">Change location</a>
-          </li>
-        </ul>
-      </div>
+    <nav className={styles.navbar}>
+      <MenuButton clickHandler={handler} />
+      <Days currentDay={0} days={3} />
+      <TemperatureMeasurment />
     </nav>
   );
 };
-
-export default HeadingNavbar;

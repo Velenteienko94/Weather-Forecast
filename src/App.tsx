@@ -1,7 +1,17 @@
+import { Component } from "react";
 import "./App.css";
+import Navbar from "./components/navbar";
 
-function App() {
-  return <div className="App"></div>;
+class App extends Component {
+  public render(): JSX.Element {
+    return (
+      <div className="App">
+        <header>
+          <Navbar />
+        </header>
+      </div>
+    );
+  }
 }
 
 export default App;
