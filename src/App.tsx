@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./App.css";
 import { Api } from "./api";
 import { TWeatherForecastResponse } from "./api/weather-service/model";
-import HeadingNavbar from "./components/header-item";
+import HeadingNavbar from "./components/navbar";
 
 function App() {
   const [data, setData] = useState<TWeatherForecastResponse>();
@@ -25,10 +25,9 @@ function App() {
 
   return (
     <div className="App">
-      <HeadingNavbar location={data && <div>{data.location.name}</div>} />
+      {data && <HeadingNavbar location={data.location} current={data.current} forecast={data.forecast} /> }
     </div>
   );
-  // {data && <div>{data.location.name}</div>}
 }
 
 export default App;

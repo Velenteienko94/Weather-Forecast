@@ -1,12 +1,12 @@
 import React from "react";
 import { TWeatherForecastResponse } from "../../api/weather-service/model";
 
-export const HeadingNavbar = (props: TWeatherForecastResponse | undefined) => {
+export const HeadingNavbar = (props: TWeatherForecastResponse) => {
   return (
     <nav>
       <div className="nav-wrapper">
         <a href="/" className="brand-logo">
-          {props?.location.name}
+          {props.location && props.location.name}
         </a>
         <ul id="nav-mobile" className="right hide-on-med-and-down">
           <li>
