@@ -1,6 +1,7 @@
 import CurrentState from "./current-state/index";
 import Conditions from "./current-conditions";
 import ForecastItems from "./forecast-items";
+import Forecast from "./forecast";
 
 export type TCurrentStateProps = {
   temperature: string;
@@ -28,4 +29,4 @@ export type TForecastItemsProps = {
   forecastItems: TForecastItemProps[];
 };
 
-export { CurrentState, Conditions, ForecastItems };
+export { CurrentState, Conditions, ForecastItems, Forecast };

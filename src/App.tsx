@@ -1,4 +1,4 @@
-import { Component } from "react";
+import React, { Component } from "react";
 import "./App.css";
 import Navbar from "./components/navbar";
 import ForecastContainer from "./container/forecast-container";
@@ -8,15 +8,10 @@ import ForecastContainer from "./container/forecast-container";
 class App extends Component {
   public render(): JSX.Element {
     return (
-      <div className="App">
+      <>
         <Navbar />
-        {/* <Clock /> */}
-        {/* <List
-          style={{ listStyleType: "none" }}
-          items={[<span style={{ color: "red" }}>Hello</span>, "World"]}
-        /> */}
-        <ForecastContainer />
-      </div>
+        <ForecastContainer />;
+      </>
     );
   }
 }
