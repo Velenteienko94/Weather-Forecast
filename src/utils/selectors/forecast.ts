@@ -27,7 +27,7 @@ export const selectCurrentStateFromForecast = (
   };
 };
 
-export const selectCoditionsFromForecast = (
+export const selectConditionsFromForecast = (
   data: {
     current: TWeatherCurrent;
   },
@@ -50,6 +50,7 @@ export const selectForecastItemsFromForecast = (
   return {
     forecastItems: data[0].hour.slice(0, 3).map((el) => {
       const temperature = tempMode === "C" ? el.temp_c : el.temp_f;
+
       return { time: el.time, temperature };
     }),
   };
