@@ -1,9 +1,9 @@
-import React, { Component } from "react";
+import { Component } from "react";
 import "./App.css";
 import Navbar from "./components/navbar";
 import ForecastContainer from "./container/forecast-container";
-// import Clock from "./components/clock";
-// import List from "./components/list/index";
+
+export type TTempMode = "F" | "C";
 
 class App extends Component {
   public render(): JSX.Element {

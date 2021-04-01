@@ -4,16 +4,16 @@ import ForecastItems from "./forecast-items";
 import Forecast from "./forecast";
 
 export type TCurrentStateProps = {
-  temperature: string;
+  temperature: number;
   locationName: string;
   description: string;
 };
 
 export type TConditions = {
-  feelsLike: string;
-  humidity: string;
-  windSpeed: string;
-  rainProbability: string;
+  feelsLike: number;
+  humidity: number;
+  windSpeed: number;
+  rainProbability: number;
 };
 
 export type TConditionsProps = {
@@ -22,7 +22,7 @@ export type TConditionsProps = {
 
 export type TForecastItemProps = {
   time: string;
-  temperature: string;
+  temperature: number;
 };
 
 export type TForecastItemsProps = {
