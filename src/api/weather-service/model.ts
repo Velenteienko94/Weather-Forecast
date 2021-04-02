@@ -79,7 +79,7 @@ export type TWeatherAstro = {
   moon_illumination: string;
 };
 
-export type TWeatherForcastDayItem = {
+export type TWeatherForecastDayItem = {
   date: string;
   date_epoch: number;
   day: {
@@ -142,9 +142,9 @@ export type TWeatherForcastDayItem = {
 };
 
 export type TWeatherForecastResponse = {
-  current: TWeatherCurrent;
-  location: TWeatherLocation;
-  forecast: {
-    forecastday: TWeatherForcastDayItem[];
+  current?: TWeatherCurrent;
+  location?: TWeatherLocation;
+  forecast?: {
+    forecastdays: TWeatherForecastDayItem[];
   };
 };

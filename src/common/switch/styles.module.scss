@@ -1,0 +1,51 @@
+.switchContainer {
+  height: 2.5rem;
+  width: 5rem;
+  padding: 0.3rem 0.4rem;
+  outline: none;
+  position: relative;
+  cursor: pointer;
+
+  & .switchItem {
+    background-color: white;
+    border-radius: 50%;
+    position: relative;
+    z-index: 5;
+    width: 2.5rem;
+    height: 2.5rem;
+    box-shadow: 0.3rem 0rem 0.2rem rgb(199, 199, 199);
+    transform: translateX(0);
+    transition: all 0.1s;
+
+    &.active {
+      transform: translateX(100%);
+    }
+  }
+
+  & .switchBackground {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(128, 128, 128, 0.2);
+    border-radius: 5rem;
+  }
+}
+
+.rotate-90 {
+  transform: rotate(90deg);
+}
+
+.rotate-180 {
+  transform: rotate(180deg);
+}
+
+.rotate-270 {
+  transform: rotate(270deg);
+}
+
+.rotate-360 {
+  transform: rotate(360deg);
+}

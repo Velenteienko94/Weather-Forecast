@@ -1,29 +1,19 @@
-import { useEffect, useState } from "react";
+import { Component } from "react";
 import "./App.css";
-import { Api } from "./api";
-import { TWeatherByLocationResponse } from "./api/weather-service/model";
+import Navbar from "./components/navbar";
+import ForecastContainer from "./container/forecast-container";
 
-function App() {
-  const [data, setData] = useState<TWeatherByLocationResponse>();
+export type TTempMode = "F" | "C";
 
-  useEffect(() => {
-    (async () => {
-      const resp = await Api.weather.weatherByLocation({
-        q: "Kiev",
-        aqi: "no",
-      });
-
-      const forecast = await Api.weather.forecastByLocation({
-        q: "London",
-        days: 3,
-      });
-
-      console.log(forecast.forecast.forecastday);
-      setData(resp);
-    })();
-  }, []);
-
-  return <div className="App">{data && <div>{data.location.name}</div>}</div>;
+class App extends Component {
+  public render(): JSX.Element {
+    return (
+      <>
+        <Navbar />
+        <ForecastContainer />;
+      </>
+    );
+  }
 }
 
 export default App;
