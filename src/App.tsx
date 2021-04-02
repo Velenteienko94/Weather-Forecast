@@ -5,9 +5,10 @@ import ForecastContainer from "./container/forecast-container";
 
 export type TTempMode = "F" | "C";
 
-export type TAppState = {
+type TAppState = {
   tempMode: TTempMode;
 };
+
 class App extends Component<Record<string, unknown>, TAppState> {
   constructor(props: Record<string, unknown>) {
     super(props);
