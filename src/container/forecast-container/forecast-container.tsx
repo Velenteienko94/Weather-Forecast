@@ -1,4 +1,5 @@
 import { Component } from "react";
+import { TForecastContainerProps } from ".";
 import { Api } from "../../api";
 import { TWeatherForecastResponse } from "../../api/weather-service/model";
 import {
@@ -13,13 +14,15 @@ type TForecastContainerState = {
   data: TWeatherForecastResponse | null;
 };
 export default class ForecastContainer extends Component<
-  any,
+  TForecastContainerProps,
   TForecastContainerState
 > {
   public state: TForecastContainerState = {
     data: null,
   };
+
   public async componentDidMount(): Promise<void> {
+    console.log(this.props);
     const resp = await Api.weather.forecastByLocation({
       q: "london",
       days: 3,
@@ -44,21 +47,24 @@ export default class ForecastContainer extends Component<
           <CurrentState
             {...selectCurrentStateFromForecast(
               { current: data.current, location: data.location },
-              "C"
+              this.props.tempMode
             )}
           />
         ) : null}
 
         {data.current ? (
           <Conditions
-            {...selectConditionsFromForecast({ current: data.current }, "C")}
+            {...selectConditionsFromForecast(
+              { current: data.current },
+              this.props.tempMode
+            )}
           />
         ) : null}
         {data.forecast && data.forecast.forecastdays ? (
           <ForecastItems
             {...selectForecastItemsFromForecast(
               data.forecast.forecastdays,
-              "C"
+              this.props.tempMode
             )}
           />
         ) : null}
