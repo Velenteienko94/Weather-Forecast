@@ -1,5 +1,6 @@
 import { Component } from "react";
 import { Api } from "../../api";
+import { TWeatherForecastResponse } from "../../api/weather-service/model";
 import {
   Conditions,
   CurrentState,
@@ -8,40 +9,59 @@ import {
 } from "../../components/forecast";
 import { forecast } from "../../utils/selectors";
 
-export default class ForecastContainer extends Component {
+type TForecastContainerState = {
+  data: TWeatherForecastResponse | null;
+};
+export default class ForecastContainer extends Component<
+  any,
+  TForecastContainerState
+> {
+  public state: TForecastContainerState = {
+    data: null,
+  };
   public async componentDidMount(): Promise<void> {
     const resp = await Api.weather.forecastByLocation({
-      q: "Kharkiv",
+      q: "london",
       days: 3,
     });
 
-    if (resp.current) {
-      const selectResult = forecast.selectConditionsFromForecast(
-        { current: resp.current },
-        "C"
-      );
-
-      console.log(selectResult);
-    }
+    this.setState({ data: resp });
   }
 
-  public render(): JSX.Element {
+  public render(): JSX.Element | null {
+    const { data } = this.state;
+    const {
+      selectConditionsFromForecast,
+      selectCurrentStateFromForecast,
+      selectForecastItemsFromForecast,
+    } = forecast;
+
+    if (!data) return null;
+
     return (
       <Forecast>
-        <CurrentState
-          description="sunny"
-          locationName="Paris"
-          temperature={23}
-        />
-        <Conditions
-          conditions={{
-            feelsLike: 10,
-            humidity: 20,
-            rainProbability: 23,
-            windSpeed: 22,
-          }}
-        />
-        <ForecastItems forecastItems={[{ temperature: 23, time: "23:00" }]} />
+        {data.current && data.location ? (
+          <CurrentState
+            {...selectCurrentStateFromForecast(
+              { current: data.current, location: data.location },
+              "C"
+            )}
+          />
+        ) : null}
+
+        {data.current ? (
+          <Conditions
+            {...selectConditionsFromForecast({ current: data.current }, "C")}
+          />
+        ) : null}
+        {data.forecast && data.forecast.forecastdays ? (
+          <ForecastItems
+            {...selectForecastItemsFromForecast(
+              data.forecast.forecastdays,
+              "C"
+            )}
+          />
+        ) : null}
       </Forecast>
     );
   }
