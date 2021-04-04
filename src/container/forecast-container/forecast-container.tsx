@@ -60,6 +60,7 @@ export default class ForecastContainer extends Component<
             )}
           />
         ) : null}
+        {/* have a mistake in  ForecastItems data validation*/}
         {data.forecast && data.forecast.forecastdays ? (
           <ForecastItems
             {...selectForecastItemsFromForecast(
