@@ -22,9 +22,8 @@ export default class ForecastContainer extends Component<
   };
 
   public async componentDidMount(): Promise<void> {
-    console.log(this.props);
     const resp = await Api.weather.forecastByLocation({
-      q: "london",
+      q: "Kharkiv",
       days: 3,
     });
 
@@ -60,11 +59,11 @@ export default class ForecastContainer extends Component<
             )}
           />
         ) : null}
-        {/* have a mistake in  ForecastItems data validation*/}
-        {data.forecast && data.forecast.forecastdays ? (
+
+        {data.forecast && data.forecast.forecastday ? (
           <ForecastItems
             {...selectForecastItemsFromForecast(
-              data.forecast.forecastdays,
+              data.forecast.forecastday,
               this.props.tempMode
             )}
           />

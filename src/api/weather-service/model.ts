@@ -145,6 +145,6 @@ export type TWeatherForecastResponse = {
   current?: TWeatherCurrent;
   location?: TWeatherLocation;
   forecast?: {
-    forecastdays: TWeatherForecastDayItem[];
+    forecastday: TWeatherForecastDayItem[];
   };
 };

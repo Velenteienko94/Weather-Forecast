@@ -5,7 +5,7 @@ import styles from "./styles.module.scss";
 import { TemperatureMeasurment } from "./temperature";
 
 export const Navbar = (props: TTemperatureMeasurmentProps): JSX.Element => {
-  const handler = () => console.log();
+  const handler = () => console.log("hello");
 
   return (
     <nav className={styles.navbar}>

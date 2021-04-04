@@ -29,7 +29,7 @@ class App extends Component<Record<string, unknown>, TAppState> {
           tempMode={this.state.tempMode}
           switchChangeHandler={this.changeTempMode}
         />
-        <ForecastContainer tempMode={this.state.tempMode} />;
+        <ForecastContainer tempMode={this.state.tempMode} />
       </>
     );
   }

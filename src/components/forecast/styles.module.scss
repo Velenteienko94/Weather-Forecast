@@ -1,22 +1,55 @@
 .wrapper {
+  background-color: lightblue;
+  height: 90%;
   font-size: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 0;
 
-  div {
+  .currentState {
+    margin-top: 2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: rgba(186, 222, 235, 0.63);
+    border: solid 2px rgba(186, 222, 235, 0.63);
+    border-radius: 10%;
+    box-shadow: 3px 3px 3px 3px gray;
   }
 
-  ul {
+  .currentConditions {
     display: flex;
+    flex-grow: 1;
     list-style: none;
     padding: 0;
+    background-color: rgba(186, 222, 235, 0.63);
+    border: solid 2px rgba(186, 222, 235, 0.63);
+    border-radius: 10%;
+    box-shadow: 3px 3px 3px 3px gray;
 
     li {
       margin: 1rem;
+    }
+  }
+
+  .forecastItems {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    background-color: rgba(186, 222, 235, 0.63);
+    border: solid 2px rgba(186, 222, 235, 0.63);
+    border-radius: 10%;
+    box-shadow: 3px 3px 3px 3px gray;
+
+    li {
+      display: flex;
+      justify-content: center;
+      padding: 1rem;
+      align-content: center;
+    }
+    li:not(:last-child) {
+      border-right: solid 1px gray;
     }
   }
 }

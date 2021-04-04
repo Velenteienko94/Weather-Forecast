@@ -47,11 +47,13 @@ export const selectForecastItemsFromForecast = (
   data: TWeatherForecastDayItem[],
   tempMode: TTempMode
 ): TForecastItemsProps => {
+  const CurrentHouers = new Date().getHours();
   return {
-    forecastItems: data[0].hour.slice(0, 3).map((el) => {
-      const temperature = tempMode === "C" ? el.temp_c : el.temp_f;
-
-      return { time: el.time, temperature };
-    }),
+    forecastItems: data[0].hour
+      .slice(CurrentHouers + 1, CurrentHouers + 4)
+      .map((el) => {
+        const temperature = tempMode === "C" ? el.temp_c : el.temp_f;
+        return { time: el.time.split(" ")[1], temperature: temperature };
+      }),
   };
 };

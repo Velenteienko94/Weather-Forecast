@@ -1,4 +1,5 @@
 import { TCurrentStateProps } from "..";
+import styles from "../styles.module.scss";
 
 export const CurrentState = ({
   description,
@@ -6,7 +7,7 @@ export const CurrentState = ({
   temperature,
 }: TCurrentStateProps): JSX.Element => {
   return (
-    <div>
+    <div className={styles.currentState}>
       <p>{description}</p>
       <p>{temperature}</p>
       <p>{locationName}</p>
