@@ -7,6 +7,7 @@ export type TCurrentStateProps = {
   temperature: number;
   locationName: string;
   description: string;
+  icon: string;
 };
 
 export type TConditions = {
@@ -21,6 +22,7 @@ export type TConditionsProps = {
 };
 
 export type TForecastItemProps = {
+  icon: string;
   time: string;
   temperature: number;
 };

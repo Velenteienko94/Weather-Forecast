@@ -19,11 +19,13 @@ export const selectCurrentStateFromForecast = (
 ): TCurrentStateProps => {
   const { current, location } = data;
   const temperature = tempMode === "C" ? current.temp_c : current.temp_f;
+  const icon = current.condition.icon;
 
   return {
     temperature,
     locationName: location.name,
     description: current.condition.text,
+    icon: icon,
   };
 };
 
@@ -47,13 +49,17 @@ export const selectForecastItemsFromForecast = (
   data: TWeatherForecastDayItem[],
   tempMode: TTempMode
 ): TForecastItemsProps => {
-  const CurrentHouers = new Date().getHours();
+  const CurrentHours = new Date().getHours();
   return {
     forecastItems: data[0].hour
-      .slice(CurrentHouers + 1, CurrentHouers + 4)
+      .slice(CurrentHours + 1, CurrentHours + 4)
       .map((el) => {
         const temperature = tempMode === "C" ? el.temp_c : el.temp_f;
-        return { time: el.time.split(" ")[1], temperature: temperature };
+        return {
+          time: el.time.split(" ")[1],
+          temperature: temperature,
+          icon: el.condition.icon,
+        };
       }),
   };
 };

@@ -1,0 +1,11 @@
+.currentState {
+  margin-top: 2rem;
+  display: flex;
+  flex: 3;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(186, 222, 235, 0.63);
+  border: solid 2px rgba(186, 222, 235, 0.63);
+  border-radius: 10%;
+  box-shadow: 3px 3px 3px 3px gray;
+}

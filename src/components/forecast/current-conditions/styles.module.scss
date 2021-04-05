@@ -1,0 +1,14 @@
+.currentConditions {
+  display: flex;
+  flex: 1;
+  list-style: none;
+  padding: 0;
+  background-color: rgba(186, 222, 235, 0.63);
+  border: solid 2px rgba(186, 222, 235, 0.63);
+  border-radius: 10%;
+  box-shadow: 3px 3px 3px 3px gray;
+
+  li {
+    margin: 1rem;
+  }
+}

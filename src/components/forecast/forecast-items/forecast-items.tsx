@@ -1,7 +1,7 @@
 import { TForecastItemsProps } from "..";
 import List from "../../../common/list";
 import { ForecastItem } from "./forcast-item";
-import styles from "../styles.module.scss";
+import styles from "./styles.module.scss";
 
 export const ForecastItems = ({
   forecastItems,
@@ -10,7 +10,7 @@ export const ForecastItems = ({
     <List
       className={styles.forecastItems}
       items={forecastItems.map((item) => {
-        return <ForecastItem time={item.time} temperature={item.temperature} />;
+        return <ForecastItem {...item} />;
       })}
     />
   );
